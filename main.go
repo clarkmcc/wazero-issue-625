@@ -14,7 +14,7 @@ var wasm []byte
 
 func main() {
 	ctx := context.Background()
-	r := wazero.NewRuntime()
+	r := wazero.NewRuntime(ctx)
 	defer r.Close(ctx)
 	_, err := wasi_snapshot_preview1.Instantiate(ctx, r)
 	if err != nil {
